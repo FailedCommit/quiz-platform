@@ -1,0 +1,26 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /api/quizzes
+#
+#jetty:
+#  threadPool:
+#    maxThreads: 10
+#    minThreads: 10
+#
+#spring:
+#  datasource:
+#    url: "jdbc:mysql://localhost:3310/users-db?autoReconnect=true"
+#    username: mohit
+#    password: mohit
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    validation-query: select 1;
+#    maxActive: 100
+#  jpa:
+#    show-sql: false
+#    generate-ddl: false
+#    properties:
+#      hibernate:
+#        ejb.naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+#        dialect: org.hibernate.dialect.MySQLDialect
+#        hbm2ddl.auto: validate
