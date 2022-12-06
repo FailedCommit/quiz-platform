@@ -11,7 +11,7 @@ server:
 spring:
   data:
     mongodb:
-      host: localhost
+      host: quiz-db
       port: 27017
 
 #    username: mohit

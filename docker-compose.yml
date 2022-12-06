@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  quiz-service:
+    build: quizservice/.
+    container_name: quizservice
+    ports:
+      - "8090:8090"
+    depends_on:
+      - quiz-db
+    networks:
+      - app-net
+
+  quiz-db:
+    container_name: quiz-db
+    image: mongo
+    volumes:
+      - /tmp/database/mongodb:/data/db
+    ports:
+      - "27017:27017"
+    restart: always
+    networks:
+      - app-net
+
+  user-service:
+    build: userservice/.
+    container_name: userservice
+    ports:
+      - "8091:8091"
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    name: nat
