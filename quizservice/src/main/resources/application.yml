@@ -27,3 +27,12 @@ spring:
 #        ejb.naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
 #        dialect: org.hibernate.dialect.MySQLDialect
 #        hbm2ddl.auto: validate
+
+bootstrap:
+  servers: localhost:9092
+key:
+  serializer: org.apache.kafka.common.serialization.StringSerializer
+  deserializer: org.apache.kafka.common.serialization.StringDeserializer
+value:
+  serializer: org.apache.kafka.common.serialization.StringSerializer
+  deserializer: org.apache.kafka.common.serialization.StringDeserializer

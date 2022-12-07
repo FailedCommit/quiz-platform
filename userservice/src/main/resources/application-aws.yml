@@ -10,7 +10,7 @@ server:
 #
 spring:
   datasource:
-    url: "jdbc:mysql://localhost:3306/user-db?autoReconnect=true"
+    url: "jdbc:mysql://user-db:3306/user-db?autoReconnect=true"
 #    username: mohit
 #    password: mohit
 #    driverClassName: com.mysql.cj.jdbc.Driver
