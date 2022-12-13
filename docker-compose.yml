@@ -30,6 +30,20 @@ services:
     networks:
       - app-net
 
+  user-db:
+    container_name: user-db
+    image: mysql
+    environment:
+      - MYSQL_DATABASE=user-db
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - /tmp/database/mysql:/data
+    ports:
+      - "3306:3306"
+    restart: always
+    networks:
+      - app-net
+
 networks:
   app-net:
     name: nat
