@@ -10,12 +10,12 @@ server:
 #
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/user-db?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://mysqldb:3306/user-db?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: mohit
     password: mohit
     driverClassName: com.mysql.cj.jdbc.Driver
-#    validation-query: select 1;
-#    maxActive: 100
+  #    validation-query: select 1;
+  #    maxActive: 100
   jpa:
     show-sql: false
     generate-ddl: true

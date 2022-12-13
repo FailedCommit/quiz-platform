@@ -1,49 +1,41 @@
-version: '3.7'
+version: '3.8'
 
 services:
-  quiz-service:
-    build: quizservice/.
-    container_name: quizservice
-    ports:
-      - "8090:8090"
-    depends_on:
-      - quiz-db
-    networks:
-      - app-net
-
-  quiz-db:
-    container_name: quiz-db
-    image: mongo
-    volumes:
-      - /tmp/database/mongodb:/data/db
-    ports:
-      - "27017:27017"
-    restart: always
-    networks:
-      - app-net
+#  quiz-service:
+#    build: quizservice/.
+#    container_name: quizservice
+#    ports:
+#      - "8090:8090"
+#    depends_on:
+#      - quiz-db
+#
+#  quiz-db:
+#    container_name: quiz-db
+#    image: mongo
+#    volumes:
+#      - /tmp/database/mongodb:/data/db
+#    ports:
+#      - "27017:27017"
+#    restart: always
 
   user-service:
     build: userservice/.
     container_name: userservice
     ports:
       - "8091:8091"
-    networks:
-      - app-net
+    depends_on:
+      - mysqldb
 
-  user-db:
-    container_name: user-db
+  mysqldb:
+    platform: linux/x86_64
     image: mysql
+    restart: always
+    ports:
+      - 3306:3306
     environment:
       - MYSQL_DATABASE=user-db
-      - MYSQL_ROOT_PASSWORD=root
-    volumes:
-      - /tmp/database/mysql:/data
-    ports:
-      - "3306:3306"
-    restart: always
-    networks:
-      - app-net
-
-networks:
-  app-net:
-    name: nat
+      - MYSQL_USER=mohit
+      - MYSQL_PASSWORD=mohit
+      - MYSQL_ROOT_PASSWORD=mohit
+#    volumes:
+#      - /tmp/database/mysql:/data
