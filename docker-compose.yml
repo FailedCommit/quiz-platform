@@ -21,6 +21,7 @@ services:
   user-service:
     build: userservice/.
     container_name: userservice
+    restart: always
     ports:
       - "8091:8091"
     depends_on:
