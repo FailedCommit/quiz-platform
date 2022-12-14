@@ -2,7 +2,9 @@ package com.maatlabs.userservice.dtos;
 
 import com.maatlabs.userservice.beans.QuizUser;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
+@Data
 public class UserRegistrationRequest {
     @NotNull
     private String firstName;

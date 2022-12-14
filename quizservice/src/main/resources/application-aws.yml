@@ -15,7 +15,7 @@ spring:
       port: 27017
 
 #    username: mohit
-#    password: mohit
+#    password: root
 #    driverClassName: com.mysql.cj.jdbc.Driver
 #    validation-query: select 1;
 #    maxActive: 100

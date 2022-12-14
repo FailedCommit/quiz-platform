@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.8'
 
 services:
   quiz-service:
@@ -25,31 +25,25 @@ services:
   user-service:
     build: userservice/.
     container_name: userservice
+    restart: always
     ports:
       - "8091:8091"
     depends_on:
-      - user-db
-    environment:
-      - DATABASE_HOST=user-db
-      - DATABASE_NAME=user-db
-      - DATABASE_PORT=3306
-    networks:
-      - app-net
+      - mysqldb
 
-  user-db:
-    container_name: user-db
+  mysqldb:
+    platform: linux/x86_64
     image: mysql
+    restart: always
+    ports:
+      - 3306:3306
     environment:
       - MYSQL_DATABASE=user-db
-      - MYSQL_ALLOW_EMPTY_PASSWORD=true
-    volumes:
-      - /tmp/database/mysql:/data
-    ports:
-      - "3306:3306"
-    restart: always
-    networks:
-      - app-net
-
+      - MYSQL_USER=mohit
+      - MYSQL_PASSWORD=mohit
+      - MYSQL_ROOT_PASSWORD=mohit
+  #    volumes:
+  #      - /tmp/database/mysql:/data
 
 # Kafka
 
