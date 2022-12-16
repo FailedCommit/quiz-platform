@@ -4,6 +4,7 @@ import com.maatlabs.quizservice.beans.Answer;
 import com.maatlabs.quizservice.beans.QuizItem;
 import com.maatlabs.quizservice.beans.dtos.*;
 import com.maatlabs.quizservice.components.QuizWebClient;
+import com.maatlabs.quizservice.services.MessageProducerService;
 import com.maatlabs.quizservice.services.QuizService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import static org.springframework.http.ResponseEntity.*;
 public class QuizApi {
     private final QuizWebClient webClient;
     private final QuizService quizService;
+    private final MessageProducerService messageProducerService;
 
     // Create a Quiz item (Question and answers)
     // Get a Question to present the quiz to the user
@@ -58,5 +60,10 @@ public class QuizApi {
     @GetMapping("/test")
     public String test() {
         return "Quiz Service is working fine ";
+    }
+
+    @PostMapping("/publish")
+    public void sendMessage(@RequestBody PIIActionRequest request) {
+        messageProducerService.sendCustomMessage(request, "userTopic");
     }
 }

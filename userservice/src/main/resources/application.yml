@@ -14,8 +14,6 @@ spring:
     username: mohit
     password: mohit
     driverClassName: com.mysql.cj.jdbc.Driver
-#    validation-query: select 1;
-#    maxActive: 100
   jpa:
     show-sql: false
     generate-ddl: true
@@ -24,3 +22,7 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
         hbm2ddl.auto: update
     database-platform: org.hibernate.dialect.MySQL5Dialect
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: quizServiceGroup

@@ -2,31 +2,25 @@ server:
   port: 8090
   servlet:
     context-path: /api/quizzes
-#
+
+
 #jetty:
 #  threadPool:
 #    maxThreads: 10
 #    minThreads: 10
 #
+
+
 spring:
   data:
     mongodb:
       host: localhost
       port: 27017
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: quizServiceGroup
 
-#    username: mohit
-#    password: mohit
-#    driverClassName: com.mysql.cj.jdbc.Driver
-#    validation-query: select 1;
-#    maxActive: 100
-#  jpa:
-#    show-sql: false
-#    generate-ddl: false
-#    properties:
-#      hibernate:
-#        ejb.naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
-#        dialect: org.hibernate.dialect.MySQLDialect
-#        hbm2ddl.auto: validate
 
 bootstrap:
   servers: localhost:9092
