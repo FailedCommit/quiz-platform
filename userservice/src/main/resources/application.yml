@@ -2,6 +2,13 @@ server:
   port: 8091
   servlet:
     context-path: /api/users
+
+
+eventstarter:
+  enabled: true
+  listener:
+    enabled-events:
+      - foo
 #
 #jetty:
 #  threadPool:
